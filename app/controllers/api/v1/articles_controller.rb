@@ -12,7 +12,7 @@ class Api::V1::ArticlesController < ApplicationController
     @user = User.find(article_params[:user_id])
     @article = Article.create(article_params)
     @user.articles << @article
-    render :json @article
+    render json: @article
   end
 
   private
