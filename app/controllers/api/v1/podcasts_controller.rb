@@ -9,7 +9,6 @@ class Api::V1::PodcastsController < ApplicationController
   end
 
   def create
-    byebug
     @user = User.find(article_params[:user_id])
     @podcast = Podcast.create(article_params)
     @user.podcasts << @podcast
