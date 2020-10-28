@@ -15,9 +15,15 @@ class Api::V1::ArticlesController < ApplicationController
     render json: @article
   end
 
+  def update
+    @article = Article.find(params[:id])
+    @article = Article.update(article_params)
+    render json: @article
+  end
+
   private
 
   def article_params
-    params.permit(:id, :user_id, :title, :subtitle, :author, :content, :contentpt2, :contentpt3, :imagelink, :imagelink2, :imagelink3)
+    params.permit(:user_id, :title, :subtitle, :author, :content, :contentpt2, :contentpt3, :imagelink, :imagelink2, :imagelink3)
   end
 end
