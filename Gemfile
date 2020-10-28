@@ -20,6 +20,9 @@ gem "jwt", "~> 2.1"
 
 gem 'active_model_serializers'
 
+gem "aws-sdk-s3"
+gem "active_storage_validations"
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
