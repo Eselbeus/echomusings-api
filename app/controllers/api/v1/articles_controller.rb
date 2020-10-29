@@ -11,15 +11,20 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def create
-    @user = User.find(article_params[:user_id])
-    @article = Article.create(article_params)
-    @user.articles << @article
-    render json: @article
+    @article = Article.new(article_params)
+    if @article.save
+      render json: @article
+    else
+      render json: @article.errors, status: :unprocessable_entity
+    end
   end
 
   def update
-    @article = Article.update(article_params)
-    render json: @article
+    if @article.update(article_params)
+      render json: @article
+    else
+      render json: @article.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -29,7 +34,7 @@ class Api::V1::ArticlesController < ApplicationController
   private
 
   def article_params
-    params.permit(:id, :user_id, :title, :subtitle, :author, :content, :contentpt2, :contentpt3, :imagelink, :imagelink2, :imagelink3)
+    params.permit(:user_id, :title, :subtitle, :author, :content, :contentpt2, :contentpt3, :imagelink, :imagelink2, :imagelink3)
   end
 
   def load_article
