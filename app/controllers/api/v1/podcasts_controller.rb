@@ -11,7 +11,7 @@ class Api::V1::PodcastsController < ApplicationController
   end
 
   def create
-    @podcast = Podcast.new(article_params)
+    @podcast = Podcast.new(podcast_params)
       if @podcast.save
         render json: @podcast
       else
@@ -20,7 +20,8 @@ class Api::V1::PodcastsController < ApplicationController
   end
 
   def update
-    if @podcast.update(article_params)
+
+    if @podcast.update(podcast_params)
       render json: @podcast
     else
       render json: @podcast.errors, status: :unprocessable_entity
@@ -33,8 +34,8 @@ class Api::V1::PodcastsController < ApplicationController
 
   private
 
-  def article_params
-    params.permit(:user_id, :title, :subtitle)
+  def podcast_params
+    params.permit(:user_id, :title, :subtitle, :audio)
   end
 
   def load_podcast
