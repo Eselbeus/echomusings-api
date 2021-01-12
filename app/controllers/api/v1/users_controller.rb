@@ -19,6 +19,8 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  #api for echomusings
+
   private
 
   def user_params
