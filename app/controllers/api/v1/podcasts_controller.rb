@@ -35,7 +35,7 @@ class Api::V1::PodcastsController < ApplicationController
   private
 
   def podcast_params
-    params.permit(:user_id, :title, :subtitle, :audio)
+    params.permit(:user_id, :title, :subtitle, :audio, :url)
   end
 
   def load_podcast
