@@ -34,7 +34,7 @@ class Api::V1::ArticlesController < ApplicationController
   private
 
   def article_params
-    params.permit(:user_id, :title, :subtitle, :author, :publication_date, :content, :contentpt2, :contentpt3, :imagelink, :imagelink2, :imagelink3)
+    params.permit(:user_id, :title, :subtitle, :author, :publication_date, :content, :contentpt2, :contentpt3, :contentpt4, :imagelink, :imagelink2, :imagelink3, :imagelink4)
   end
 
   def load_article
